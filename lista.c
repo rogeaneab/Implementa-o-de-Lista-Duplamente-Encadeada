@@ -83,13 +83,11 @@ char get(List *l, int position) {
         return '\0';
     }
 
-    // primeira chamada
     if (l->current == NULL) {
         l->current = l->head;
         l->current_pos = 1;
     }
 
-    // já está na posição certa
     if (position == l->current_pos) {
         return l->current->value;
     }
@@ -97,7 +95,6 @@ char get(List *l, int position) {
     Element *aux = l->current;
     int i = l->current_pos;
 
-    // navegar para frente
     if (position > l->current_pos) {
         while (aux != NULL) {
             if (i == position) {
@@ -110,7 +107,6 @@ char get(List *l, int position) {
         }
     }
 
-    // navegar para trás
     if (position < l->current_pos) {
         while (aux != NULL) {
             if (i == position) {
@@ -149,7 +145,6 @@ char delete(List *l, int position) {
 
     Element *curr = l->head;
 
-    // remover o 1°
     if (position == 1) {
         char c = curr->value;
         l->head = curr->next;
